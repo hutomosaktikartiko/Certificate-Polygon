@@ -42,6 +42,18 @@ contract Certificates {
         );
     }
 
+    function checkCertificateIsValid(
+        address _certificateAddress
+    ) public view returns(bool) {
+        for (uint256 _i = 0; _i < certificates.length; _i++) {
+            if (certificates[_i] == _certificateAddress) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     function getCertificates() public view returns(address[]) {
         return certificates;
     }
